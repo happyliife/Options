@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nature Balance Journal</title>
+<meta name="description" content="A wellness education landing page about simple lifestyle learning, mindful living, rest habits, plant-based resources, and balanced daily routines.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f1f6f2;
+    color:#1f2d27;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:90%;
+    max-width:1180px;
+    margin:auto;
+}
+
+/* HEADER */
+.header{
+    background:#12382f;
+    padding:18px 0;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:#fff;
+    font-size:25px;
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.nav-links a{
+    color:#e6f4ed;
+    font-weight:700;
+    font-size:15px;
+}
+
+.nav-links .nav-btn{
+    background:#f4c95d;
+    color:#12382f;
+    padding:11px 24px;
+    border-radius:6px;
+}
+
+/* HERO */
+.hero{
+    background:#12382f;
+    color:#fff;
+    padding:90px 0 110px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:420px;
+    height:420px;
+    background:#1f5b4d;
+    border-radius:50%;
+    opacity:.55;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    padding:9px 18px;
+    border-radius:6px;
+    margin-bottom:18px;
+    font-weight:800;
+    color:#f4c95d;
+}
+
+.hero h1{
+    font-size:64px;
+    line-height:1.04;
+    margin-bottom:24px;
+}
+
+.hero p{
+    font-size:19px;
+    color:#d7e9e0;
+    max-width:590px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-block;
+    background:#f4c95d;
+    color:#12382f;
+    padding:15px 32px;
+    border-radius:6px;
+    font-weight:900;
+}
+
+.btn-dark{
+    background:#fff;
+    color:#12382f;
+}
+
+.hero-img img{
+    height:540px;
+    object-fit:cover;
+    border-radius:80px 10px 80px 10px;
+    box-shadow:0 25px 55px rgba(0,0,0,.28);
+}
+
+/* INTRO CARDS */
+.intro-wrap{
+    margin-top:-55px;
+    position:relative;
+    z-index:4;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.intro-card{
+    background:#fff;
+    padding:32px;
+    border-radius:18px;
+    box-shadow:0 16px 36px rgba(18,56,47,.12);
+}
+
+.intro-card span{
+    font-size:38px;
+}
+
+.intro-card h3{
+    color:#12382f;
+    font-size:22px;
+    margin:15px 0 8px;
+}
+
+.intro-card p{
+    color:#64748b;
+}
+
+/* SECTION */
+.section{
+    padding:45px 0;
+}
+
+.section-head{
+    max-width:760px;
+    margin:0 auto 48px;
+    text-align:center;
+}
+
+.section-head small{
+    color:#1f5b4d;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-head h2{
+    font-size:42px;
+    color:#12382f;
+    line-height:1.2;
+    margin:12px 0;
+}
+
+.section-head p{
+    color:#64748b;
+    font-size:17px;
+}
+
+/* FEATURE SPLIT */
+.split{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.split-img img{
+    height:560px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 18px 45px rgba(18,56,47,.15);
+}
+
+.split-content h2{
+    color:#12382f;
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.split-content p{
+    color:#5f6f68;
+    margin-bottom:18px;
+}
+
+.list-box{
+    margin-top:26px;
+}
+
+.list-row{
+    display:flex;
+    gap:16px;
+    padding:18px;
+    background:#fff;
+    border-radius:14px;
+    margin-bottom:14px;
+    box-shadow:0 10px 24px rgba(18,56,47,.08);
+}
+
+.list-row b{
+    color:#12382f;
+    font-size:22px;
+}
+
+/* TOPIC GRID */
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.topic-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 14px 34px rgba(18,56,47,.11);
+}
+
+.topic-card img{
+    height:190px;
+    object-fit:cover;
+}
+
+.topic-body{
+    padding:24px;
+}
+
+.topic-body h3{
+    color:#12382f;
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.topic-body p{
+    color:#64748b;
+    font-size:15px;
+    margin-bottom:18px;
+}
+
+.topic-body a{
+    color:#1f5b4d;
+    font-weight:900;
+}
+
+/* GUIDE */
+.guide{
+    background:#fff;
+}
+
+.guide-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.guide-card{
+    background:#f1f6f2;
+    padding:32px;
+    border-radius:18px;
+    display:flex;
+    gap:18px;
+}
+
+.guide-card span{
+    width:52px;
+    height:52px;
+    background:#12382f;
+    color:#f4c95d;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    flex-shrink:0;
+}
+
+.guide-card h3{
+    color:#12382f;
+    margin-bottom:8px;
+}
+
+.guide-card p{
+    color:#64748b;
+}
+
+/* CTA */
+.cta{
+    background:
+    linear-gradient(90deg,rgba(18,56,47,.95),rgba(31,91,77,.78)),
+    url("https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1700&q=80");
+    background-size:cover;
+    background-position:center;
+    padding:90px 20px;
+    text-align:center;
+    color:#fff;
+}
+
+.cta h2{
+    font-size:46px;
+    line-height:1.2;
+    margin-bottom:18px;
+}
+
+.cta p{
+    max-width:760px;
+    margin:auto;
+    color:#e6f4ed;
+    font-size:18px;
+}
+
+/* FAQ */
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq-item{
+    background:#fff;
+    padding:28px;
+    border-radius:16px;
+    margin-bottom:18px;
+    box-shadow:0 10px 25px rgba(18,56,47,.08);
+}
+
+.faq-item h3{
+    color:#12382f;
+    margin-bottom:8px;
+}
+
+.faq-item p{
+    color:#64748b;
+}
+
+/* FOOTER */
+.footer{
+    background:#0b241e;
+    color:#d7e9e0;
+    text-align:center;
+    padding:34px 20px;
+}
+
+.footer a{
+    color:#d7e9e0;
+    margin:0 10px;
+}
+
+.sticky-btn{
+    position:fixed;
+    bottom:18px;
+    right:18px;
+    background:#f4c95d;
+    color:#12382f;
+    padding:15px 26px;
+    border-radius:6px;
+    font-weight:900;
+    z-index:999;
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .hero-grid,
+    .split{
+        grid-template-columns:1fr;
+    }
+
+    .intro-grid{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .guide-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+}
+
+@media(max-width:700px){
+    .nav{
+        flex-direction:column;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .hero{
+        padding:60px 0 80px;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-img img,
+    .split-img img{
+        height:360px;
+        border-radius:24px;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head h2,
+    .split-content h2,
+    .cta h2{
+        font-size:30px;
+    }
+
+    .sticky-btn{
+        left:15px;
+        right:15px;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="nav">
+            <a href="index.html" class="logo">Nature Balance Journal</a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#topics">Topics</a>
+                <a href="#guide">Guide</a>
+                <a href="#faq">FAQ</a>
+                <a href="YOUR_TRACKING_LINK" class="nav-btn">Explore</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+
+            <div>
+                <span class="hero-label">Balanced Living Education</span>
+
+                <h1>Learn Simple Ways To Care For Daily Wellbeing</h1>
+
+                <p>
+                    Explore lifestyle-focused wellness information about mindful habits,
+                    nourishing routines, steady rest, natural resources, and everyday balance.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="YOUR_TRACKING_LINK" class="btn">Explore Resources</a>
+                    <a href="#topics" class="btn btn-dark">View Topics</a>
+                </div>
+            </div>
+
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80" alt="Fresh wellness ingredients">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="intro-wrap">
+    <div class="container">
+        <div class="intro-grid">
+
+            <div class="intro-card">
+                <span>🍋</span>
+                <h3>Fresh Routine Ideas</h3>
+                <p>
+                    Discover simple daily habits that may help make wellness easier to understand.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <span>🪴</span>
+                <h3>Natural Resource Learning</h3>
+                <p>
+                    Explore general plant-based wellness topics and lifestyle resource categories.
+                </p>
+            </div>
+
+            <div class="intro-card">
+                <span>🕯️</span>
+                <h3>Calm Living Focus</h3>
+                <p>
+                    Learn about mindful pauses, evening resets, rest awareness, and balanced routines.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <div class="split">
+
+            <div class="split-img">
+                <img src="https://images.unsplash.com/photo-1514995669114-6081e934b693?auto=format&fit=crop&w=1100&q=80" alt="Plant based wellness">
+            </div>
+
+            <div class="split-content">
+                <h2>A Fresh Wellness Page With Clear Everyday Guidance</h2>
+
+                <p>
+                    This wellness resource is designed for visitors who want simple lifestyle education
+                    without confusing promises or complicated language.
+                </p>
+
+                <p>
+                    It brings together common wellness topics such as food awareness, rest habits,
+                    mindful living, gentle movement, and natural lifestyle resources.
+                </p>
+
+                <div class="list-box">
+
+                    <div class="list-row">
+                        <b>01</b>
+                        <p>Learn general lifestyle concepts in a clean and easy format.</p>
+                    </div>
+
+                    <div class="list-row">
+                        <b>02</b>
+                        <p>Explore wellness resources related to routine, balance, and daily awareness.</p>
+                    </div>
+
+                    <div class="list-row">
+                        <b>03</b>
+                        <p>Choose information that matches your personal interests and goals.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section" id="topics">
+    <div class="container">
+
+        <div class="section-head">
+            <small>Wellness Library</small>
+            <h2>Explore New Wellness Topic Sections</h2>
+            <p>
+                Each section is created around general wellness education and practical lifestyle awareness.
+            </p>
+        </div>
+
+        <div class="topic-grid">
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Whole food wellness">
+                <div class="topic-body">
+                    <h3>Whole-Food Awareness</h3>
+                    <p>Learn about colorful meals, food variety, and everyday nourishment basics.</p>
+                    <a href="YOUR_TRACKING_LINK">Explore →</a>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Movement lifestyle">
+                <div class="topic-body">
+                    <h3>Gentle Activity</h3>
+                    <p>Explore simple movement ideas and active lifestyle awareness.</p>
+                    <a href="YOUR_TRACKING_LINK">Explore →</a>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Mindful living">
+                <div class="topic-body">
+                    <h3>Mindful Breaks</h3>
+                    <p>Discover calm moments, breathing breaks, and daily reset ideas.</p>
+                    <a href="YOUR_TRACKING_LINK">Explore →</a>
+                </div>
+            </div>
+
+            <div class="topic-card">
+                <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80" alt="Sleep and rest">
+                <div class="topic-body">
+                    <h3>Rest Awareness</h3>
+                    <p>Understand basic rest routines, recovery time, and evening habits.</p>
+                    <a href="YOUR_TRACKING_LINK">Explore →</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="section guide" id="guide">
+    <div class="container">
+
+        <div class="section-head">
+            <small>Simple Learning Flow</small>
+            <h2>How Visitors Can Use This Resource</h2>
+            <p>
+                A clear process helps users explore wellness information without confusion.
+            </p>
+        </div>
+
+        <div class="guide-grid">
+
+            <div class="guide-card">
+                <span>1</span>
+                <div>
+                    <h3>Start With A Wellness Area</h3>
+                    <p>
+                        Choose a topic such as nourishment, rest, activity, or mindful living.
+                    </p>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <span>2</span>
+                <div>
+                    <h3>Read General Guidance</h3>
+                    <p>
+                        Explore simple educational content created for everyday lifestyle awareness.
+                    </p>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <span>3</span>
+                <div>
+                    <h3>Compare Resource Options</h3>
+                    <p>
+                        Review available wellness resources and options that may match your interests.
+                    </p>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <span>4</span>
+                <div>
+                    <h3>Build A Personal Routine</h3>
+                    <p>
+                        Use what you learn to think about daily habits that feel realistic for you.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Explore Wellness Resources In A Simple Way</h2>
+
+        <p>
+            Learn about general lifestyle topics, mindful routines, plant-based resources,
+            food awareness, and daily balance options.
+        </p>
+
+        <a href="YOUR_TRACKING_LINK" class="btn" style="margin-top:30px;">
+            Explore Options
+        </a>
+    </div>
+</section>
+
+<section class="section" id="faq">
+    <div class="container">
+
+        <div class="section-head">
+            <small>FAQ</small>
+            <h2>Questions About This Wellness Resource</h2>
+            <p>
+                Clear answers about the purpose and type of content available here.
+            </p>
+        </div>
+
+        <div class="faq">
+
+            <div class="faq-item">
+                <h3>What is Nature Balance Journal?</h3>
+                <p>
+                    It is a general wellness education page focused on daily habits, lifestyle awareness, and resource discovery.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Does this page provide professional advice?</h3>
+                <p>
+                    No. This page provides informational content only and should not replace professional guidance.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What topics are covered?</h3>
+                <p>
+                    Topics include food awareness, rest routines, mindful breaks, gentle activity, and plant-based resources.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Are wellness choices personal?</h3>
+                <p>
+                    Yes. Wellness routines can vary depending on lifestyle, goals, schedule, and personal preferences.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 Nature Balance Journal. All Rights Reserved.</p>
+
+    <p style="margin-top:10px;">
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms & Conditions</a> |
+        <a href="disclaimer.html">Disclaimer</a>
+    </p>
+</footer>
+
+</body>
+</html>
